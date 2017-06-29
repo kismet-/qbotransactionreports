@@ -1,4 +1,4 @@
-var CONSUMER_KEY = '---';
+var CONSUMER_KEY = '---';    // Add OAuth Consumer Key and Secret
 var CONSUMER_SECRET = '---';
 muteHttpExceptions=true
 
@@ -91,42 +91,17 @@ function CountValue( strText, reTargetString ){
     return( intCount );
 }
 
-
 function pullJSON(json) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheets = ss.getSheets();
   var sheet = ss.getActiveSheet();
 
-  //var dataSet = json; 
-  //var jsonFix =  JSON.stringify(dataSet);
-//  var fi = jsonFix.replace(/.*?(?={"Row":)/, "");
-//  fi = fi.replace(/.*?(?={"ColData":)/, "");
-//  var ki = fi.replace(/"type":"Data"\},\{/g, "");
- 
-
- // fi = JSON.parse(fi);
-//  fi = ki.slice(0, -3);
- // for (i=0; i < 
-// Logger.log(fi);
-  
-  
-  //Logger.log(fi);
- // var i = 0;
-  
-//  fi = fi.replace(/ColData/g, function(m) { return "ColData" + (++i).toString(); });
-//  Logger.log(fi);
-
- // fi = JSON.parse(fi);
-  //Logger.log(JSON.stringify(fi));
-
-  //Logger.log(JSON.parse(json)['Rows']);
   
   fi = JSON.parse(json);
  // Logger.log(fi.Rows.Row);
   var rows = fi.Rows.Row,
       data;
   
-
   tests = sheet.getRange(1,1,1,4)
   tests.setValues([["date", "memo", "account", "amount"]]);
   for (i = 0; i < rows.length; i++) {
@@ -141,8 +116,6 @@ function pullJSON(json) {
       
      Logger.log(hit[j].value); 
       meth2.push(hit[j].value);
-//     dataRange = sheet.getRange(i+2, j+1);
-//     dataRange.setValue(hit[j].value);
      
     }
    tests = sheet.getRange(i+2,1,1,4)
