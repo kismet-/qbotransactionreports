@@ -36,7 +36,7 @@ function reset() {
 }
 
 /**
- * Configures the service.
+ * Configures the service. OAuth1.0
  */
 function getService() {
   return OAuth1.createService('QuickBooks')
